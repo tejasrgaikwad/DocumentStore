@@ -1,0 +1,42 @@
+.packageDetailsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.packageInfoContainer{
+    justify-content: center;
+    text-align: center;
+}
+.label{
+    color: #9d9d9d;
+}
+.h3{
+    color: #000;
+    font-weight: bolder;
+}
+.grayLabel{
+    color: #666e78;
+    font-size: 2.4rem;
+}
+.packageInfo{
+    display:flex;
+    padding: 20px;
+    column-gap: 5%;
+    justify-content: center;
+}
+.blackBoldLabel{
+    transition-duration: 14802s;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    flex-flow: column wrap;
+}
+@media screen and (max-width: 600px) {
+    .packageDetailsContainer {
+      display: block;
+    }
+    .grayLabel{
+        color: #9d9d9d;
+        font-size: 0.8rem;
+    }
+}
