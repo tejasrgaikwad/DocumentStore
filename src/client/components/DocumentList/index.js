@@ -111,6 +111,8 @@ const DashboardList = () => {
       <div>
         <br/>
         <br/>
+            <div>See Preview below:</div> 
+
             <PreviewDocument type={type} file={file}/>
         </div>
     </div>

@@ -46,6 +46,15 @@ export default class UploadFiles extends Component {
   }
 
   upload(idx, file) {
+    if(this.state.user && this.state.user.includes(" "))
+    {
+      this.setState((prev) => {
+        return {
+          message: ['Please do not use spaces in username']
+        };
+      });
+      return;
+    }
     let _progressInfos = [...this.state.progressInfos];
 
     UploadService.upload(file, this.state.user, this.state.comments, (event) => {

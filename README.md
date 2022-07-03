@@ -1,14 +1,41 @@
-# Getting Started with Create React App
+# Getting Started with DocumentStore
 
-## Available Scripts
+### `Upload tab`
+
+Used to upload the files.
+
+### `Documents Tab`
+
+Used to view the files.
+
+1. Click on the AG grid row to preview the file below the grid
+2. Click on the file name to donwload the file.
+
+Files are stored in server side directory, for each user entered. \
+If you use same username again, it will be uploaded in same directory for that User.\
+metadata.txt file used to list the details of all files.\
+size.txt used to calculate total size of directory. 
+
+
+Please use below commands to install and run the project. 
+
+# Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all dependencies before running
+
 
 ### `npm run dev`
 
 Runs the app(server+client) in the development mode.\
 Open [http://localhost:3000](http://localhost:3001) to view it in the browser.
 Server will run on [http://localhost:3001]
+Please wait until the server started properly. 
+
+
 
 ### `npm run server`
 
