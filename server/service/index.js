@@ -100,6 +100,15 @@ export const saveFile = async (req, res) => {
         return res.status(200).send('Maximum limit is 200MB per file.');
     }
 
+    const isAllowedFileType = constants.ALLOWED_FILE_TYPES.some(element => {
+        return filename.toLowerCase().endsWith(element.toLowerCase());
+      });
+
+    if(!isAllowedFileType)
+    {
+        return res.status(500).send("Invalid file type. Accepted file types are xlsx, docx, pdf, xlsm.");
+    }
+
 
     // create directy for user if not exist.
     if (!fs.existsSync(newpath)) {

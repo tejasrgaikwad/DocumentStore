@@ -9,16 +9,15 @@ import PreviewDocument from '../PreviewDocument';
 
 const Dashboard = () => {
 const [value, setValue] = React.useState(0);
-const [ type, setType] = React.useState();
-const [ file, setFile] = React.useState();
+
 
 
 
 function setpreview (type, file) {
     console.log('type=', type);
     console.log('file=', encodeURI(file));
-    setType(type);
-    setFile(encodeURI(file));
+    // setType(type);
+    // setFile(encodeURI(file));
 }
 
 
@@ -55,9 +54,7 @@ return (
             <br/>
             {renderBody(value, (type, file)=>setpreview(type, file))}
         </div>
-        <div>
-            <PreviewDocument type={type} file={file}/>
-        </div>
+        
 	</div>
     );
 };

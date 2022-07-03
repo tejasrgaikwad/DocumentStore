@@ -19,13 +19,19 @@ const onError = (e) => console.log(e);
 
 const LoaderComponent = () => <img src="http://localhost:3000/loading.svg" className="loading" />;
 
+
 class PreviewDocument extends Component {
     constructor(props) {
         super(props);
     }
+    
     render() {
         console.log('file111111', this.props.file);
         console.log('file222222', this.props.type);
+        if(!this.props.type || !this.props.file)
+        {
+            return (<div></div>)
+        }
         return (
             <FileViewer
                 fileType={this.props.type}

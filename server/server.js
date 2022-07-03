@@ -9,6 +9,7 @@ const fileupload = require("express-fileupload");
 const constants = require('./constants');
 
 
+
 const basePath = constants.BASE_PATH + "/files/";
 
 var allowlist = ['http://localhost:3000']
@@ -48,8 +49,7 @@ app.get(`${BASE_URL}/files`, cors(corsOptionsDelegate), async (req, res) => {
 
 
 app.get(`${BASE_URL}/files/:user/:filename`, cors(corsOptionsDelegate), async (req, res) => {
-  console.log('here==============', req.params['user']);
-  console.log('here===================', req.params['filename'])
+
   res.setHeader('Content-Type', 'application/json');
   try {
     if (!req.params['user']) {
@@ -58,7 +58,8 @@ app.get(`${BASE_URL}/files/:user/:filename`, cors(corsOptionsDelegate), async (r
     }
     else {
       const file = decodeURIComponent(req.params['filename']);
-      console.log('decodedURI', file);
+     
+
       res.download(basePath + req.params['user'] + "/" + file, file, (err) => {
         if (err) {
           res.status(500).send({

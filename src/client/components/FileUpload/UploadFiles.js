@@ -163,17 +163,7 @@ export default class UploadFiles extends Component {
           </div>
         )}
 
-        <div className="card">
-          <div className="card-header">List of Files</div>
-          <ul className="list-group list-group-flush">
-            {fileInfos &&
-              fileInfos.map((file, index) => (
-                <li className="list-group-item" key={index}>
-                  <a href={file.url}>{file.name}</a>
-                </li>
-              ))}
-          </ul>
-        </div>
+        
       </div>
     );
   }

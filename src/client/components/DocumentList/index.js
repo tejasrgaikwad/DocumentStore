@@ -35,9 +35,11 @@ function LinkComponent(props) {
 }
 
 
-const DashboardList = ({setpreview}) => {
+const DashboardList = () => {
   const gridRef = useRef(); // Optional - for accessing Grid's API
   const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row
+  const [ type, setType] = React.useState();
+  const [ file, setFile] = React.useState();
   const count = useSelector((state) => state.documentList)
 
   // Each Column Definition results in one Column.
@@ -48,6 +50,14 @@ const DashboardList = ({setpreview}) => {
     { field: 'Notes', filter: true },
     { field: 'Size', filter: true },
   ]);
+
+  function setpreview (type, file) {
+    console.log('type=', type);
+    console.log('file=', encodeURI(file));
+    setType(type);
+    setFile(encodeURI(file));
+  }
+
 
   // DefaultColDef sets props common to all Columns
   const defaultColDef = useMemo(() => ({
@@ -79,6 +89,7 @@ const DashboardList = ({setpreview}) => {
       {/* Example using Grid's API */}
 
       {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
+      Note: Click on the row to preview, click on Name to download the file.
       <div className="ag-theme-alpine" style={{ width: 700, height: 300 }}>
 
         <AgGridReact
@@ -97,6 +108,11 @@ const DashboardList = ({setpreview}) => {
           onCellClicked={cellClickedListener} // Optional - registering for Grid Event
         />
       </div>
+      <div>
+        <br/>
+        <br/>
+            <PreviewDocument type={type} file={file}/>
+        </div>
     </div>
   );
 };
